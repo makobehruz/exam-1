@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+
+    <style>
+        .continer {
+            width: 70%;
+            margin: auto;
+        }
+        .matn th{
+            border: 1px solid black;
+
+        }
+        .matn1 td {
+            border: 1px solid black;
+        }
+        .input ,input ,textarea{
+            width: 100%;
+            margin-top: 10px;
+
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="continer">
+        <h1 style="text-align: center;">Taxi Management</h1>
+        <form class="input" method="GET">
+
+            <fieldset>
+
+                <legend style="text-align: center;"><h3>Creat New Taxi</h3></legend>
+
+                <label for="name">Taxi Name:
+                <input type="text" name="name" id="name">
+                </label><br><br>
+
+
+                <label for="plate">License Plate:
+                    <input type="text" name="plate" id="plate">
+                </label><br><br>
+
+
+                <label for="driver">Driver Name:
+                    <input type="text" name="driver" id="driver">
+                </label><br><br>
+
+                <label for="passenger">Passenger Capacity:
+                    <input type="number" name="passenger" id="passenger">
+                </label><br><br>
+
+                <label for="model">Car model:
+                    <input type="text" name="model" id="model">
+                </label><br><br>
+
+
+
+
+                <label for="statsu">Status:
+                    <select name="statsu" id="statsu">
+
+                        <option value="select">Select Status</option>
+                        <option value="appetizer">Available</option>
+                        <option value="main">Busy</option>
+                        <option value="dessert">Under Maintenance</option>
+
+                    </select>
+                </label><br><br>
+
+
+                <input class="tugma" type="submit" value="Creat Taxi" style="padding: 10px; cursor: pointer; ">
+
+            </fieldset>
+
+        </form><br><br>
+
+
+        <fieldset>
+
+            <legend style="text-align: center; "><h3>Meal List</h3> </legend>
+            <table style="border: 1px solid black;">
+
+                <thead class="matn">
+
+                    <tr class="matn">
+                        <th>Taxi Name</th>
+                        <th>License Plate</th>
+                        <th>Driver</th>
+                        <th>Capacity</th>
+                        <th>Model</th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+
+                <tbody class="matn1">
+                    {% for post in taxi %}
+                    <tr>
+                        <td>{{ post.name }}</td>
+                        <td>{{ post.plate }}</td>
+                        <td>{{ post.driver }}</td>
+                        <td>{{ post.passenger }}</td>
+                        <td>{{ post.model }}</td>
+                        <td>{{ post.statsu }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </fieldset>
+
+    </div>
+</body>
+</html>

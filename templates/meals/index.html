@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+
+    <style>
+        .continer {
+            width: 70%;
+            margin: auto;
+        }
+        .matn th{
+            border: 1px solid black;
+
+        }
+        .matn1 td {
+            border: 1px solid black;
+        }
+        .input ,input ,textarea{
+            width: 100%;
+            margin-top: 10px;
+
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="continer">
+        <h1 style="text-align: center;">Meal Management</h1>
+        <form class="input" method="GET">
+
+            <fieldset>
+
+                <legend style="text-align: center;"><h3>Creat New Meal</h3></legend>
+
+                <label for="meal">Meal Name:
+                <input type="text" name="meal" id="meal">
+                </label><br><br>
+
+                <label>Ingredients:
+                    <textarea name="address" id="address"></textarea>
+                </label><br><br>
+
+
+                <label for="price">Price:
+                    <input type="text" name="price" id="price">
+                </label><br><br>
+
+
+                <label for="cuisine">Cuisine:
+                    <input type="text" name="cuisine" id="cuisine">
+                </label><br><br>
+
+
+                <label for="gender">Select Type:
+                    <select name="gender" id="gender">
+
+                        <option value="select">Select Type</option>
+                        <option value="appetizer">Appetizer</option>
+                        <option value="main">Main Course</option>
+                        <option value="dessert">Dessert</option>
+
+                    </select>
+                </label><br><br>
+
+
+                <input class="tugma" type="submit" value="Creat Meal" style="padding: 10px; cursor: pointer; ">
+
+            </fieldset>
+
+        </form><br><br>
+
+
+        <fieldset>
+
+            <legend style="text-align: center; "><h3>Meal List</h3> </legend>
+            <table style="border: 1px solid black;">
+
+                <thead class="matn">
+
+                    <tr class="matn">
+                        <th>Name</th>
+                        <th>Ingredients</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Cuisine</th>
+
+                    </tr>
+                </thead>
+
+                <tbody class="matn1">
+                    {% for post in meals %}
+                    <tr>
+                        <td>{{ post.name }}</td>
+                        <td>{{ post.ingredients }}</td>
+                        <td>{{ post.price }}</td>
+                        <td>{{ post.cuisine }}</td>
+                        <td>{{ post.gender }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </fieldset>
+
+    </div>
+</body><br><br>
+</html>
